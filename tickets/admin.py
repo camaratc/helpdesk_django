@@ -7,5 +7,6 @@ class TicketAdmin(admin.ModelAdmin):
     search_fields = ('autor', 'departamento', 'titulo', 'status', 'dataAbertura')
     list_filter = ('autor', 'departamento', 'status', 'dataAbertura')
     list_display = ('titulo', 'autor', 'dataAbertura')
+    ordering = ['-dataAbertura']
 
 admin.site.register(Ticket, TicketAdmin)

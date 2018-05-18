@@ -13,7 +13,6 @@ class Ticket(models.Model):
     class Meta:
         verbose_name = u"Ticket"
         verbose_name_plural = u"Tickets"
-        ordering = ['titulo', 'descricao']
 
     def __unicode__(self):
         return u"%s - %s" % (self.titulo, self.autor)
