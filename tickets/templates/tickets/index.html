@@ -1,0 +1,10 @@
+<h1>Solicitar Suporte</h1>
+
+<form action="{% url 'tickets:solicitar' %}" method="post">
+    {% csrf_token %}
+
+    <label for="titulo">Título</label>
+    <input type="text" id="titulo" name="titulo" />
+
+    <input type="submit" value="Solicitar" />
+</form>

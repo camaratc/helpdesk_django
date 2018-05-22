@@ -20,5 +20,5 @@ class Ticket(models.Model):
         verbose_name = u"Ticket"
         verbose_name_plural = u"Tickets"
 
-    def __unicode__(self):
-        return u"%s - %s" % (self.titulo, self.autor)
+    def __str__(self):
+        return self.titulo
