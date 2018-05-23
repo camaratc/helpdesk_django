@@ -1,24 +1,42 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views import generic
-from django.urls import reverse
+from django.shortcuts import render, get_object_or_404, redirect
+from django.utils import timezone
 
 from .models import Ticket
 from .forms import TicketForm
+from .forms import BuscarTicketForm
 
-class IndexView(generic.ListView):
-    template_name = 'tickets/index.html'
+def home(request):
+    return render(request, 'tickets/home.html', {})
 
-    def get_queryset(self):
-        return 0
+def detalhes_solicitacao(request, pk):
+    ticket = get_object_or_404(Ticket, pk=pk)
+    return render(request, 'tickets/detalhes.html', {'ticket': ticket})
 
-class DetailView(generic.DetailView):
-    model = Ticket
-    template_name = 'tickets/detail.html'
+def solicitar_suporte(request):
+    if request.method == "POST":
+        form = TicketForm(request.POST)
 
-def solicitar(request):
-    if request.method = "POST":
-        form = TicketForm
+        if form.is_valid():
+            ticket = form.save(commit = False)
+            ticket.dataAbertura = timezone.now()
+            ticket.status = 0
+            ticket.save()
 
-        if form.is_valid:
-            pass
+            return redirect('tickets:detalhes_solicitacao', pk=ticket.pk)
+    else:
+        form = TicketForm()
+        
+    return render(request, 'tickets/solicitar_suporte.html', {'form': form})
+
+def buscar_solicitacao(request):
+    if request.method == "POST":
+        form = BuscarTicketForm(request.POST)
+
+        if form.is_valid():
+            busca = form.cleaned_data['cod']
+
+            return redirect('tickets:detalhes_solicitacao', pk=busca)
+    else:
+        form = BuscarTicketForm()
+    
+    return render(request, 'tickets/buscar_solicitacao.html', {'form': form})

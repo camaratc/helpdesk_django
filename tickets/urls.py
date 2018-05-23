@@ -5,6 +5,9 @@ from . import views
 app_name = 'tickets'
 
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
-    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+    path('', views.home, name='home'),
+    path('solicitar/', views.solicitar_suporte, name='solicitar_suporte'),
+    path('solicitar/<int:pk>', views.detalhes_solicitacao, name="detalhes_solicitacao"),
+    path('buscar/', views.buscar_solicitacao, name="buscar_solicitacao"),
+    # path('<int:pk>/', views.DetailView.as_view(), name='detail'),
 ]

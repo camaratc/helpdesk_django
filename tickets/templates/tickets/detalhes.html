@@ -1,0 +1,6 @@
+{% extends 'tickets/base.html' %}
+
+{% block content %}
+    <h1>Olá, {{ ticket.autor }}!</h1>
+    <p>Seu ticket: "{{ticket.titulo}}" (código {{ticket.pk}}), enviado em {{ticket.dataAbertura}} está {{ticket.status}}</p>
+{% endblock %}

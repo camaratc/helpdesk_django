@@ -1,9 +1,10 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 STATUS_CHOICE = (
-    (0, "Aberto"),
-    (1, "Andamento"),
+    (0, "em Aberto"),
+    (1, "em Andamento"),
     (2, "Finalizado")
 )
 
@@ -13,8 +14,8 @@ class Ticket(models.Model):
     autor = models.CharField("Autor", max_length=100)
     email = models.CharField("E-mail", max_length=45)
     departamento = models.CharField("Departamento", max_length=45)
-    dataAbertura = models.DateTimeField("Data de Abertura")
-    status = models.IntegerField("Status", choices=STATUS_CHOICE)
+    dataAbertura = models.DateTimeField("Data de Abertura", default = timezone.now())
+    status = models.IntegerField("Status", default=0, choices=STATUS_CHOICE)
 
     class Meta:
         verbose_name = u"Ticket"
