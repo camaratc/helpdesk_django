@@ -1,0 +1,30 @@
+*, html, body{
+    color: #333;
+}
+
+/* Header ========================= */
+
+.menu-superior{
+    padding: 20px 0px 15px 0px;
+}
+
+.text-light, .text-light:hover{
+    text-decoration: none;
+    font-size: 40px;
+}
+
+/* Content ======================== */
+
+.main{
+    margin-top: 50px;
+}
+
+/* Form =========================== */
+
+.input-descricao{
+    height: 200px;
+}
+
+.cod{
+    width: 250px;
+}
