@@ -10,7 +10,22 @@ def home(request):
 
 def detalhes_solicitacao(request, pk):
     ticket = get_object_or_404(Ticket, pk=pk)
-    return render(request, 'tickets/detalhes.html', {'ticket': ticket})
+
+    status = ""
+
+    if ticket.status == 0:
+        status = "Aberto"
+    elif ticket.status == 1:
+        status = "em Andamento"
+    elif ticket.status == 2:
+        status = "Fechado"
+
+    context = {
+        'ticket': ticket,
+        'status': status
+    }
+
+    return render(request, 'tickets/detalhes.html', context)
 
 def solicitar_suporte(request):
     if request.method == "POST":
@@ -40,3 +55,6 @@ def buscar_solicitacao(request):
         form = BuscarTicketForm()
     
     return render(request, 'tickets/buscar_solicitacao.html', {'form': form})
+
+def erro_404(request):
+    return render(request, '404.html', {})
