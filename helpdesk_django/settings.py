@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'zqyg!4xt0ws(x(ws+^d=@t!h@f^l8h*nlxrzpisepmaw&ocx=l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,12 +77,6 @@ WSGI_APPLICATION = 'helpdesk_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
@@ -119,7 +113,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # EMAIL_HOST_PASSWORD = ''
 # EMAIL_USE_TLS = True
 
-
+EMAIL_HOST = 'smtp.camaratc.mg.gov.br'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'helpdesk@camaratc.mg.gov.br'
+EMAIL_HOST_PASSWORD = 'cmtc@2018'
+EMAIL_USE_TLS = False
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

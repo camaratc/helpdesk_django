@@ -1,12 +1,50 @@
 <html>
 <head>
     <style>
+        input[type="button"]{
+            outline:none;
+        }
+        input[type="button"]::-moz-focus-inner {
+            border: 0;
+        }
+        .container{
+            margin: 20px, 20px, 20px, 20px;
+            text-align: center;
+        }
 
+        .texto{
+            color: #3a3a3a;
+        }
+
+        .botao-texto{
+            font-size: 16px;
+        }
+
+        .botao{
+            width: 200px;
+            height: 40px;
+            margin: 0 auto;
+            border-radius: 7px;
+            background-color: #218838;
+            border-color: #218838;
+            color: white;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .botao:hover{
+            background-color: white;
+            border-color: #218838;
+            color: #218838;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div>
-        <h1>Sua solicitação "<i>{{titulo}}</i>" foi recebida.</h1>
-        <h2>Acompanhe pelo ID do chamado: <a href="http://{{dominio}}/tickets/solicitar/{{codigo}}">{{codigo}}</a>.</h2>
+    <div class="container">
+        <h1 class="texto">Sua solicitação "<i>{{titulo}}</i>" foi recebida.</h1>
+        <h2 class="texto">Acompanhe pelo ID do chamado: <a href="http://{{dominio}}/tickets/solicitar/{{codigo}}">{{codigo}}</a>.</h2>
+        <a href="http://{{dominio}}/tickets/solicitar/{{codigo}}"><button class="botao"><b class="botao-texto">Clique aqui!</b></button></a>
     </div>
 </body>
