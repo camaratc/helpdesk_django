@@ -2,6 +2,6 @@
 
 {% block content %}
     <h1>Olá, {{ ticket.autor }}!</h1>
-    <p>Seu ticket: "{{ticket.titulo}}" (código {{ticket.pk}}), enviado em {{ticket.dataAbertura}} está {{status}}</p>
+    <p>Seu ticket: "{{ticket.titulo}}" (código {{ticket.codigo}}), enviado em {{ticket.dataAbertura}} está {{status}}</p>
     <a href="{% url 'tickets:buscar_solicitacao' %}">Voltar</a>
 {% endblock %}

@@ -16,6 +16,7 @@ class Ticket(models.Model):
     departamento = models.CharField("Departamento", max_length=45)
     dataAbertura = models.DateTimeField("Data de Abertura", default = timezone.now())
     status = models.IntegerField("Status", default=0, choices=STATUS_CHOICE)
+    codigo = models.CharField("Código", max_length=20)
 
     class Meta:
         verbose_name = u"Ticket"
