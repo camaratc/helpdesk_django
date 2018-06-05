@@ -41,13 +41,6 @@ def solicitar_suporte(request):
             ticket.status = 0
             ticket.codigo = definir_codigo(ticket.dataAbertura)
 
-            # assunto = "Abertura de chamado"
-            # mensagem = "Sua solicitação '" + ticket.titulo + "' foi recebida, Acompanhe pelo ID do chamado: " + ticket.codigo + "."
-            # remetente = "helpdesk@camaratc.mg.gov.br"
-            # destinatario = ticket.email
-
-            # send_mail(assunto, mensagem, remetente, [destinatario], fail_silently=False)
-
             assunto = "Abertura de chamado"
             msg_basica = "Sua solicitação '" + ticket.titulo + "' foi recebida, Acompanhe pelo ID do chamado: " + ticket.codigo + "."
             remetente = "helpdesk@camaratc.mg.gov.br"
