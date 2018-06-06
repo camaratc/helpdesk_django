@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 from django.utils import timezone
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -6,6 +6,8 @@ from django.template.loader import render_to_string
 import random
 
 from .models import Ticket
+from .models import Comentario
+
 from .forms import TicketForm
 from .forms import BuscarTicketForm
 
@@ -14,6 +16,13 @@ def home(request):
 
 def detalhes_solicitacao(request, codigo):
     ticket = get_object_or_404(Ticket, codigo=codigo)
+    comentarios = []
+
+    if Comentario.objects.filter(ticket=ticket.pk).exists():
+        comentarios = get_list_or_404(Comentario, ticket=ticket.pk)
+        print(comentarios)
+    else:
+        comentarios.append(Comentario(texto="Ainda não há comentários para este chamado.", data=False))
 
     status = ""
 
@@ -26,7 +35,8 @@ def detalhes_solicitacao(request, codigo):
 
     context = {
         'ticket': ticket,
-        'status': status
+        'status': status,
+        'comentarios': comentarios
     }
 
     return render(request, 'tickets/detalhes.html', context)

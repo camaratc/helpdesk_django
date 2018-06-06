@@ -24,3 +24,9 @@ class Ticket(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Comentario(models.Model):
+    texto = models.TextField("Texto", max_length=1000)
+    ticket = models.ForeignKey(
+        Ticket, on_delete=models.CASCADE)
+    data = models.DateTimeField("Data", default=timezone.now())
