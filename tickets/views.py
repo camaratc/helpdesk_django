@@ -20,7 +20,6 @@ def detalhes_solicitacao(request, codigo):
 
     if Comentario.objects.filter(ticket=ticket.pk).exists():
         comentarios = get_list_or_404(Comentario, ticket=ticket.pk)
-        print(comentarios)
     else:
         comentarios.append(Comentario(texto="Ainda não há comentários para este chamado.", data=False))
 
