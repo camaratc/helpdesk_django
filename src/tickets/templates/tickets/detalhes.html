@@ -1,0 +1,19 @@
+{% extends 'tickets/base.html' %}
+
+{% block content %}
+    <h1>Olá, {{ ticket.autor }}!</h1>
+    <p>Seu ticket: "{{ticket.titulo}}" (código {{ticket.codigo}}), enviado em {{ticket.dataAbertura}} está {{status}}</p>
+    <a href="{% url 'tickets:buscar_solicitacao' %}">Voltar</a>
+
+    <hr />
+    <h5>Comentários:</h5>
+
+    {% for item in comentarios %}
+        <div class="caixa-comentario">
+            {% if item.data != False %}
+                <p class="text-muted data-comentario">{{item.data}}</p>
+            {% endif %}
+            <p>{{item.texto}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
