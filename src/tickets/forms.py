@@ -9,6 +9,7 @@ class TicketForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super(TicketForm, self).__init__(*args, **kwargs)
+        self.fields['host'].required = False
 
         for item in self.fields:
             if item == 'descricao':
