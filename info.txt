@@ -1,1 +1,5 @@
-docker-compose --verbose up --force-recreate --build --remove-orphans
+docker-compose up -d --force-recreate --build --remove-orphans
+
+- Entrar no bash do app e fazer as migrações
+- Modificar o USE_TZ para True no settings.py
+

@@ -14,7 +14,7 @@ class Ticket(models.Model):
     autor = models.CharField("Autor", max_length=100)
     email = models.CharField("E-mail", max_length=45)
     departamento = models.CharField("Departamento", max_length=45)
-    host = models.CharField("Host", max_length=45, default='')
+    host = models.CharField("Host", max_length=45)
     dataAbertura = models.DateTimeField("Data de Abertura", default = timezone.now())
     status = models.IntegerField("Status", default=0, choices=STATUS_CHOICE)
     codigo = models.CharField("Código", max_length=20, default='')
