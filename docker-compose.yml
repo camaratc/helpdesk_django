@@ -19,7 +19,7 @@ services:
       - ./src/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
   app:
     build: .
-    command: python3 manage.py runserver 0.0.0.0:8000
+    command: python3 manage.py runserver 0.0.0.0:8000 --insecure
     volumes:
       - ./src/:/code
     ports:
