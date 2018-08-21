@@ -1,0 +1,9 @@
+﻿1 - Executar: docker-compose up -d --force-recreate --build --remove-orphans
+
+2 - Entrar no bash do app e fazer as migrações do Django
+
+3 - Modificar o USE_TZ para True no settings.py
+
+Opcional:
+- python manage.py collectstatic
+
