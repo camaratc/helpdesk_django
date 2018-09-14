@@ -8,3 +8,4 @@
 
 ## Opcional: ##
 - Executar, se houver necessidade dos arquivos estáticos: ```python manage.py collectstatic```
+- Para realizar o proxy reverso copiar o arquivo _src/config/helpdesk.conf_ para a pasta de configuração do Nginx _/etc/nginx/conf.d/_
