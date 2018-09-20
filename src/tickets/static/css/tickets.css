@@ -29,6 +29,16 @@ body {
     font-size: 40px;
 }
 
+.nav-link{
+    font-size: 22px;
+    color: #4D4747;
+    transition: color 0.5s ease-in-out;
+}
+
+.nav-link:hover{
+    color: #7FC732;
+}
+
 .main-logo{
     position: absolute;
     width: 75px;
