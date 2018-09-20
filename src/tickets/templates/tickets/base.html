@@ -8,30 +8,30 @@
     </head>
     <body>
         <div id="topheader">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url 'tickets:home' %}">Helpdesk</a>
-
-            <div class="collapse navbar-collapse justify-content-end">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'tickets:solicitar_suporte' %}">Solicitar Suporte</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'tickets:buscar_solicitacao' %}">Andamento da Solicitação</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+            <nav class="navbar navbar-expand-lg">
+                {% if request.get_full_path != '/tickets/' %}
+                    <a href="{% url 'tickets:home' %}">
+                        <img class="arrow-left align-middle" src="{% static 'img/arrow-left.png' %}" />
+                    </a>
+                {% endif %}
+                <div class="container">
+                    <img class="main-logo" src="{% static 'img/logo.png' %}" />
+                    <a class="text-nav" href="{% url 'tickets:home' %}">Helpdesk</a>
+                </div>
+            </nav>
+            <img class="main-line" src="{% static 'img/line_colored.png' %}" />
         </div>
+
 
         <div class="container main">
             {% block content %}
             {% endblock %}
         </div>
 
-        <footer class="footer rodape">
+        <footer class="footer rodape text-center">
+            <img class="main-line" src="{% static 'img/line_colored.png' %}" />
             <div class="container">
-                <span class="text-white">&copy;2018. Câmara Municipal de Três Corações.</span>
+                <span>&copy;2018. Câmara Municipal de Três Corações.</span>
             </div>
         </footer>
 

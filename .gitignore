@@ -2,3 +2,4 @@ src/static/admin/
 src/tickets/migrations/
 src/tickets/__pycache__/
 src/helpdesk_django/__pycache__/
+src/env/
