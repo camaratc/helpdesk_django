@@ -1,10 +1,16 @@
 # Instalação: #
 
-1 - Executar: ```docker-compose up -d --force-recreate --build --remove-orphans```
+1 - Executar: ```sudo docker-compose up -d --build --remove-orphans``` e aguardar a inicialização do banco de dados;
 
-2 - Entrar no bash do app e fazer as migrações do Django
+2 - Entrar no bash do app, fazer as migrações e criar superuser do Django:
 
-3 - Modificar a variável _USE\_TZ_ para **True** no _settings.py_
+- ```sudo docker-compose exec app bash```
+- ```python manage.py makemigrations```
+- ```python manage.py migrate```
+- ```python manage.py createsuperuser```
+
+3 - Sair do bash e reiniciar o container: ```sudo docker-compose restart app```
+
 
 ## Opcional: ##
 - Executar, se houver necessidade dos arquivos estáticos: ```python manage.py collectstatic```
